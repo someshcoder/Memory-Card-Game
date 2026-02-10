@@ -268,14 +268,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-## 👨‍💻 Author
-
-**Somesh**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: [your-email@example.com](mailto:your-email@example.com)
-
----
-
 ## 🙏 Acknowledgments
 
 - React team for the amazing framework
@@ -292,6 +284,24 @@ If you encounter any issues or have questions:
 1. Check the [Issues](https://github.com/yourusername/memory-card-game/issues) page
 2. Create a new issue with detailed information
 3. Contact via email
+
+---
+
+<div align="center">
+
+## 👨‍💻 About the Developer
+
+**Somesh Bhatnagar** - Full Stack Developer passionate about creating modern web applications with exceptional user experiences.
+
+<a href="https://www.linkedin.com/in/somesh-bhatnagar-18b388328/">
+  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+<a href="https://www.instagram.com/bhatnagarsomesh/">
+  <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+</a>
+<a href="https://github.com/someshcoder">
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+</a>
 
 ---
 
