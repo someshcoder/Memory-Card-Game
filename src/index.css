@@ -1,5 +1,202 @@
+/* Import Tailwind CSS v4 */
 @import "tailwindcss";
 
-@theme {
-  /* Your theme customizations */
+/* ===================================================
+   CUSTOM BASE STYLES
+   =================================================== */
+
+@layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Base body styles */
+  body {
+    @apply antialiased;
+    line-height: 1.6;
+  }
+
+  /* Remove default button styles */
+  button {
+    @apply cursor-pointer border-0 bg-none;
+  }
+
+  /* Reset input, textarea, select */
+  input,
+  textarea,
+  select {
+    @apply font-sans;
+  }
+
+  /* Focus visible styles for accessibility */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
+
+  /* Dark mode focus styles */
+  @media (prefers-color-scheme: dark) {
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      @apply outline-blue-400;
+    }
+  }
+}
+
+@layer components {
+  /* ===================================================
+     CUSTOM COMPONENT STYLES
+     =================================================== */
+
+  /* Card base style */
+  .card {
+    @apply rounded-xl bg-white shadow-md transition-all duration-200 dark:bg-gray-800;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply rounded-xl border border-white/20 bg-white/30 backdrop-blur-md dark:bg-gray-900/30;
+  }
+
+  /* Focus ring utility */
+  .focus-ring {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
+
+  /* Transition helpers */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+@layer utilities {
+  /* ===================================================
+     CUSTOM UTILITY CLASSES
+     =================================================== */
+
+  /* Perspective for 3D transforms */
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-500 {
+    perspective: 500px;
+  }
+
+  /* Transform style utilities */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .backface-visible {
+    backface-visibility: visible;
+  }
+
+  /* 3D rotations */
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .rotate-x-90 {
+    transform: rotateX(90deg);
+  }
+
+  /* Text shadows */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Truncate utilities */
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Smooth hover effects */
+  .hover-glow {
+    @apply transition-all duration-200;
+  }
+
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500;
+  }
+
+  .gradient-dark {
+    @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-800;
+  }
+
+  /* Center utilities */
+  .center {
+    @apply flex items-center justify-center;
+  }
+
+  .center-content {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  /* Animations inherited from Tailwind config */
+  .animate-flip {
+    animation: flip 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Grid utilities for responsive layouts */
+  .grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE BREAKPOINTS & MEDIA QUERIES
+   =================================================== */
+
+/* Mobile first approach - base styles are mobile
+   then use md:, lg:, xl: prefixes for larger screens */
+
+@media (max-width: 640px) {
+  /* Mobile optimizations can go here if needed */
+}
+
+@media (min-width: 768px) {
+  /* Tablet optimizations can go here if needed */
+}
+
+@media (min-width: 1024px) {
+  /* Desktop optimizations can go here if needed */
 }
