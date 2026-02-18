@@ -17,12 +17,13 @@ import { Modal } from './components/ui/Modal';
 
 // Pages
 import AboutPage from './pages/About';
+import SettingsPage from './pages/SettingsPage';
 
 // Styles
 import './styles/globals.css';
 import './styles/animations.css';
 
-/**
+/*
  * Home/Game Page Component
  */
 const HomePage: React.FC = () => {
@@ -34,7 +35,6 @@ const HomePage: React.FC = () => {
     activeModal,
     openModal,
     closeModal,
-    toggleTheme,
   } = useGameContext();
 
   // Sound effects hook
@@ -142,15 +142,7 @@ const HomePage: React.FC = () => {
     closeModal();
   }, [resumeGame, closeModal]);
 
-  /**
-   * Handle open settings
-   */
-  const handleOpenSettings = useCallback(() => {
-    if (isGameStarted && !isGamePaused && !isGameComplete) {
-      pauseGame();
-    }
-    openModal('settings');
-  }, [isGameStarted, isGamePaused, isGameComplete, pauseGame, openModal]);
+
 
   /**
    * Handle open high scores
@@ -187,9 +179,6 @@ const HomePage: React.FC = () => {
     <>
       {/* Header */}
       <Header
-        onToggleTheme={toggleTheme}
-        theme={settings.theme}
-        onOpenSettings={handleOpenSettings}
         onStart={handleStartGame}
       />
 
@@ -229,7 +218,6 @@ const HomePage: React.FC = () => {
             onPause={handlePauseGame}
             onResume={handleResumeGame}
             onDifficultyChange={handleDifficultyChange}
-            onOpenSettings={handleOpenSettings}
             onOpenHighScores={handleOpenHighScores}
           />
 
@@ -330,7 +318,6 @@ const HomePage: React.FC = () => {
       {/* Footer */}
       <Footer
         onOpenHighScores={handleOpenHighScores}
-        onOpenSettings={handleOpenSettings}
       />
 
       {/* Modal */}
@@ -406,6 +393,7 @@ const AppContent: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
       </Routes>
     </div>
   );
