@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import { IconButton } from '../ui/Button';
 
 interface HeaderProps {
-  onToggleTheme?: () => void;
-  theme?: 'light' | 'dark';
-  onOpenSettings?: () => void;
   onStart?: () => void;
 }
 
@@ -13,9 +10,6 @@ interface HeaderProps {
  * Header Component - Top navigation bar
  */
 export const Header: React.FC<HeaderProps> = ({
-  onToggleTheme,
-  theme = 'light',
-  onOpenSettings,
   onStart,
 }) => {
   return (
@@ -35,9 +29,11 @@ export const Header: React.FC<HeaderProps> = ({
 
             {/* Title */}
             <div className="flex flex-col justify-end pt-4">
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Memory Game
-              </h1>
+              <Link to="/" className="hover:opacity-80 transition-opacity">
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Memory Game
+                </h1>
+              </Link>
             </div>
           </div>
 
@@ -90,45 +86,7 @@ export const Header: React.FC<HeaderProps> = ({
             )}
 
             {/* Theme toggle */}
-            {onToggleTheme && (
-              <IconButton
-                icon={
-                  theme === 'dark' ? (
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                      />
-                    </svg>
-                  )
-                }
-                onClick={onToggleTheme}
-                ariaLabel={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-                variant="ghost"
-                size="md"
-              />
-            )}
+            {/* Removed as per user request */}
 
             {/* About/Info button */}
             <Link to="/about">
@@ -153,32 +111,12 @@ export const Header: React.FC<HeaderProps> = ({
                 size="md"
               />
             </Link>
+            
+            {/* Settings button */}
+            {/* Removed as per user request */}
 
             {/* Settings button (mobile only) */}
-            {onOpenSettings && (
-              <IconButton
-                icon={
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                }
-                onClick={onOpenSettings}
-                ariaLabel="Open menu"
-                variant="ghost"
-                size="md"
-                className="md:hidden"
-              />
-            )}
+            {/* Removed as per user request */}
           </div>
         </div>
       </div>
