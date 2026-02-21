@@ -263,9 +263,14 @@ Please ensure code follows ESLint rules and TypeScript best practices.
 
 ---
 
+---
+
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.  
+You are free to use, modify, and distribute this software in accordance with the license terms.  
+
+See the [LICENSE](LICENSE) file for full details.
 
 ---
 
