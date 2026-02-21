@@ -244,7 +244,8 @@ The optimized build will be created in the `dist` folder, ready for deployment.
 
 ## 🐛 Known Issues
 
-- None currently reported
+- Currently, there are no known bugs or issues. 
+If you find any, please feel free to open an issue.
 
 ---
 
