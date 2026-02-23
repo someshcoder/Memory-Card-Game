@@ -285,11 +285,9 @@ See the [LICENSE](LICENSE) file for full details.
 
 ## 📞 Support
 
-If you encounter any issues or have questions:
+If you have any questions or suggestions, feel free to contact me at:
 
-1. Check the [Issues](https://github.com/yourusername/memory-card-game/issues) page
-2. Create a new issue with detailed information
-3. Contact via email
+📧 someshbhatnagar535@gmail.com
 
 ---
 
