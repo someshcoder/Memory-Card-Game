@@ -11,14 +11,10 @@ interface GameContextType {
   openModal: (modalType: ModalType) => void;
   closeModal: () => void;
   toggleTheme: () => void;
-  updateSettings: (newSettings: Partial<GameSettings>) => void;
 }
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
-/**
- * Default game settings
- */
 const defaultSettings: GameSettings = {
   soundEnabled: true,
   musicEnabled: true,
@@ -27,44 +23,33 @@ const defaultSettings: GameSettings = {
   autoFlipDelay: 500,
 };
 
-/**
- * GameProvider Component - Provides game state to child components
- */
+
 export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [settings, setSettings] = useState<GameSettings>(defaultSettings);
   const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
   const [_selectedTheme] = useState<string>('default');
   const [activeModal, setActiveModal] = useState<ModalType>(null);
 
-  /**
-   * Open a modal
-   */
+  
   const openModal = (modalType: ModalType) => {
     setActiveModal(modalType);
   };
 
-  /**
-   * Close the modal
-   */
+  
   const closeModal = () => {
     setActiveModal(null);
   };
 
-  /**
-   * Toggle theme between light and dark
-   */
+  
   const toggleTheme = () => {
-    setSettings((prev) => ({
-      ...prev,
-      theme: prev.theme === 'light' ? 'dark' : 'light'
-    }));
-  };
-
-  /**
-   * Update game settings
-   */
-  const updateSettings = (newSettings: Partial<GameSettings>) => {
-    setSettings(prev => ({ ...prev, ...newSettings }));
+    setSettings((prev) => {
+      const newTheme: 'light' | 'dark' = prev.theme === 'light' ? 'dark' : 'light';
+      const next = { ...prev, theme: newTheme };
+      try {
+        console.log('toggleTheme ->', prev.theme, '->', next.theme);
+      } catch (e) {}
+      return next;
+    });
   };
 
   const value: GameContextType = {
@@ -76,7 +61,6 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     openModal,
     closeModal,
     toggleTheme,
-    updateSettings,
   };
 
   // Apply theme class to document element so Tailwind dark mode works
