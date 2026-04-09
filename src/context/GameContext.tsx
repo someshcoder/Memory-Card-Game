@@ -11,9 +11,14 @@ interface GameContextType {
   openModal: (modalType: ModalType) => void;
   closeModal: () => void;
   toggleTheme: () => void;
+  updateSettings: (updates: Partial<GameSettings>) => void;
 }
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
+
+interface GameProviderProps {
+  children: ReactNode;
+}
 
 const defaultSettings: GameSettings = {
   soundEnabled: true,
@@ -24,7 +29,7 @@ const defaultSettings: GameSettings = {
 };
 
 
-export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
   const [settings, setSettings] = useState<GameSettings>(defaultSettings);
   const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
   const [_selectedTheme] = useState<string>('default');
@@ -42,7 +47,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   
   const toggleTheme = () => {
-    setSettings((prev) => {
+    setSettings((prev: GameSettings) => {
       const newTheme: 'light' | 'dark' = prev.theme === 'light' ? 'dark' : 'light';
       const next = { ...prev, theme: newTheme };
       try {
@@ -50,6 +55,13 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       } catch (e) {}
       return next;
     });
+  };
+
+  /**
+   * Update game settings
+   */
+  const updateSettings = (updates: Partial<GameSettings>) => {
+    setSettings((prev: GameSettings) => ({ ...prev, ...updates }));
   };
 
   const value: GameContextType = {
@@ -61,6 +73,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     openModal,
     closeModal,
     toggleTheme,
+    updateSettings,
   };
 
   // Apply theme class to document element so Tailwind dark mode works
