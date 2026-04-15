@@ -47,7 +47,7 @@ export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
 
   
   const toggleTheme = () => {
-    setSettings((prev: GameSettings) => {
+    setSettings((prev) => {
       const newTheme: 'light' | 'dark' = prev.theme === 'light' ? 'dark' : 'light';
       const next = { ...prev, theme: newTheme };
       try {
@@ -61,7 +61,7 @@ export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
    * Update game settings
    */
   const updateSettings = (updates: Partial<GameSettings>) => {
-    setSettings((prev: GameSettings) => ({ ...prev, ...updates }));
+    setSettings((prev) => ({ ...prev, ...updates }));
   };
 
   const value: GameContextType = {
